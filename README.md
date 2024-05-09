@@ -1,16 +1,15 @@
-# React + Vite
+# ServiceFlow
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Website Live Link:
 
-Installed packages:
+-   [Live Server](https://)
 
--   tailwind css(with config)
--   daisy 🌼 ui
--   react router dom
--   react hot toast
--   moment js
--   react icons
--   react spinners
--   prop types
--   firebase
--   axios
+## Website Features:
+
+<!-- -   Eye catchy Login and Registration page -->
+<!-- -   There are two themes: Light and Dark -->
+<!-- -   My list page with functional table -->
+<!-- -   Most Secure User Authentication with firebase, github and google -->
+<!-- -   Easy to Navigate different routes -->
+
+### Category: "Electronic Item Repairing Services"
