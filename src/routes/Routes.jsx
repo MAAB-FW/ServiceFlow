@@ -7,6 +7,11 @@ import AllServices from "../pages/AllServices/AllServices"
 import PrivateRoute from "./PrivateRoute/PrivateRoute"
 import SingleServices from "../pages/SingleServices/SingleServices"
 import AddAService from "../pages/AddAService/AddAService"
+import ManageServices from "../pages/ManageServices/ManageServices"
+import BookedServices from "../pages/BookedServices/BookedServices"
+import ServiceToDo from "../pages/ServiceToDo/ServiceToDo"
+import Login from "../pages/Login/Login"
+import Register from "../pages/Register/Register"
 
 const router = createBrowserRouter([
     {
@@ -23,6 +28,14 @@ const router = createBrowserRouter([
                 element: <AllServices></AllServices>,
             },
             {
+                path: "/login",
+                element: <Login></Login>,
+            },
+            {
+                path: "/register",
+                element: <Register></Register>,
+            },
+            {
                 path: "/single-services/:id",
                 element: (
                     <PrivateRoute>
@@ -35,6 +48,30 @@ const router = createBrowserRouter([
                 element: (
                     <PrivateRoute>
                         <AddAService></AddAService>
+                    </PrivateRoute>
+                ),
+            },
+            {
+                path: "/manage-services",
+                element: (
+                    <PrivateRoute>
+                        <ManageServices></ManageServices>
+                    </PrivateRoute>
+                ),
+            },
+            {
+                path: "/booked-services",
+                element: (
+                    <PrivateRoute>
+                        <BookedServices></BookedServices>
+                    </PrivateRoute>
+                ),
+            },
+            {
+                path: "/service-to-do",
+                element: (
+                    <PrivateRoute>
+                        <ServiceToDo></ServiceToDo>
                     </PrivateRoute>
                 ),
             },
