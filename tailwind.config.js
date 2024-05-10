@@ -14,9 +14,21 @@ export default {
             {
                 light: {
                     ...require("daisyui/src/theming/themes")["light"],
+                    // ".bg-primary": {
+                    //     "background-color": "white",
+                    // },
+                    // ".text-base-100": {
+                    //     color: "black",
+                    // },
                 },
                 dark: {
                     ...require("daisyui/src/theming/themes")["dark"],
+                    // ".bg-primary": {
+                    //     "background-color": "#111827",
+                    // },
+                    // ".text-base-100": {
+                    //     color: "white",
+                    // },
                 },
             },
         ],
