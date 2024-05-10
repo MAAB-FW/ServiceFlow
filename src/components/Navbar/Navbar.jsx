@@ -1,8 +1,36 @@
 import React from "react"
 import { Link, NavLink } from "react-router-dom"
+import useAuth from "../../hooks/useAuth"
+import toast from "react-hot-toast"
+import Swal from "sweetalert2"
 
 const Navbar = () => {
-    const user = false
+    const { user, logoutUser, setUser } = useAuth()
+
+    const handleLogout = () => {
+        Swal.fire({
+            title: "Do you want to log out?",
+            // text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Log out!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                logoutUser()
+                    .then(() => {
+                        setUser(null)
+                        toast.success("Successfully logged out!")
+                    })
+                    .catch((e) => {
+                        console.log(e)
+                        toast.error("An error Occur!")
+                    })
+            }
+        })
+    }
+
     const dark = () => {
         document.querySelector("html").setAttribute("data-theme", "dark")
         localStorage.setItem("theme", "dark")
@@ -20,6 +48,7 @@ const Navbar = () => {
         if (e.target.checked) dark()
         else light()
     }
+
     const navlinks = (
         <>
             <li>
@@ -125,14 +154,11 @@ const Navbar = () => {
                     <>
                         <div className="border text-neutral-content text-sm rounded-full w-10 z-50">
                             <span>
-                                <img className="rounded-full" src={"user.photoURL"} alt="img" />
+                                <img className="rounded-full" src={user.photoURL} alt="img" />
                             </span>
                         </div>
                         <div className="ml-2">
-                            <button
-                                // onClick={handleLogout}
-                                className="btn btn-error text-white"
-                            >
+                            <button onClick={handleLogout} className="btn btn-error text-white">
                                 Log out
                             </button>
                         </div>

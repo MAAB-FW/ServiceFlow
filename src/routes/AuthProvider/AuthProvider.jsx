@@ -42,15 +42,15 @@ const AuthProvider = ({ children }) => {
         return signOut(auth)
     }
 
-    // useEffect(() => {
-    //     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-    //         setUser(currentUser)
-    //         setLoading(false)
-    //     })
-    //     return () => unSubscribe()
-    // }, [])
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser)
+            setLoading(false)
+        })
+        return () => unSubscribe()
+    }, [])
 
-    const AuthData = { user, loading, createUser, googleSignIn, logoutUser, loginUser }
+    const AuthData = { user, loading, createUser, googleSignIn, logoutUser, loginUser, setUser }
     return <AuthContext.Provider value={AuthData}>{children}</AuthContext.Provider>
 }
 

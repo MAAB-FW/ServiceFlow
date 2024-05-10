@@ -1,9 +1,28 @@
 import React from "react"
 import { Helmet } from "react-helmet"
-import { Link } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { FcGoogle } from "react-icons/fc"
+import useAuth from "../../hooks/useAuth"
+import toast from "react-hot-toast"
 
 const Login = () => {
+    const { googleSignIn } = useAuth()
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    const handleGoogle = (e) => {
+        e.preventDefault()
+        googleSignIn()
+            .then((r) => {
+                console.log(r.user)
+                toast.success("Successfully Logged in!")
+                navigate(location?.state || "/")
+            })
+            .catch((e) => {
+                console.log(e)
+                toast.error("An error occur! Please try again later!")
+            })
+    }
     return (
         <div>
             <Helmet>
@@ -79,7 +98,7 @@ const Login = () => {
                     <p className="mt-4 text-gray-400 text-center">⸺⸺⸺⸺ or, ⸺⸺⸺⸺</p>
                     <p className="mt-4 flex justify-center text-center text-sm text-gray-500">
                         <button
-                            // onClick={handleGoogle}
+                            onClick={handleGoogle}
                             className="flex items-center justify-center bg-white border border-gray-300 rounded-lg shadow-md px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
                         >
                             <FcGoogle className="text-2xl mr-4" />
