@@ -69,7 +69,9 @@ const Navbar = () => {
                         {navlinks}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">ServiceFlow</a>
+                <Link to="/" className="btn btn-ghost text-xl">
+                    ServiceFlow
+                </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">{navlinks}</ul>
@@ -116,9 +118,9 @@ const Navbar = () => {
                     </label>
                 </div>
                 {!user ? (
-                        <Link to="/login" className="btn">
-                            Login
-                        </Link>
+                    <Link to="/login" className="btn">
+                        Login
+                    </Link>
                 ) : (
                     <>
                         <div className="border text-neutral-content text-sm rounded-full w-10 z-50">
