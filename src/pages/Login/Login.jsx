@@ -6,11 +6,27 @@ import useAuth from "../../hooks/useAuth"
 import toast from "react-hot-toast"
 
 const Login = () => {
-    const { googleSignIn } = useAuth()
+    const { googleSignIn, loginUser } = useAuth()
     const navigate = useNavigate()
     const location = useLocation()
 
-    // const 
+    const handleLogin = (e) => {
+        e.preventDefault()
+        const form = e.target
+        const email = form.email.value
+        const password = form.password.value
+
+        loginUser(email, password)
+            .then((r) => {
+                console.log(r.user)
+                toast.success("Successfully Logged in!")
+                navigate(location.state || "/")
+            })
+            .catch((e) => {
+                console.log(e)
+                toast.error("Incorrect email or password!")
+            })
+    }
 
     const handleGoogle = (e) => {
         e.preventDefault()
@@ -39,7 +55,7 @@ const Login = () => {
                 </div>
 
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                    <form  className="space-y-6" method="POST">
+                    <form onSubmit={handleLogin} className="space-y-6" method="POST">
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                                 Email address
