@@ -54,26 +54,38 @@ const Navbar = () => {
     const navlinks = (
         <>
             <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink className="font-semibold" to="/">
+                    Home
+                </NavLink>
             </li>
             <li>
-                <NavLink to="/all-services">Services</NavLink>
+                <NavLink className="font-semibold" to="/all-services">
+                    Services
+                </NavLink>
             </li>
             <li>
                 <details>
-                    <summary>Dashboard</summary>
+                    <summary className="font-semibold">Dashboard</summary>
                     <ul className="p-2 w-[170px]">
                         <li>
-                            <NavLink to="/add-a-service">Add Service</NavLink>
+                            <NavLink className="font-semibold" to="/add-a-service">
+                                Add Service
+                            </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/manage-services">Manage Service</NavLink>
+                            <NavLink className="font-semibold" to="/manage-services">
+                                Manage Service
+                            </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/booked-services">Booked-Services</NavLink>
+                            <NavLink className="font-semibold" to="/booked-services">
+                                Booked-Services
+                            </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/service-to-do">Service-To-Do</NavLink>
+                            <NavLink className="font-semibold" to="/service-to-do">
+                                Service-To-Do
+                            </NavLink>
                         </li>
                     </ul>
                 </details>
@@ -82,7 +94,7 @@ const Navbar = () => {
     )
 
     return (
-        <div className="navbar p-0 bg-base-100 px-4">
+        <div className="navbar p-0 bg-base-100 px-4 shadow-lg z-50">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

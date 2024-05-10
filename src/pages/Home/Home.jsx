@@ -1,5 +1,7 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+import React from "react"
+import { Helmet } from "react-helmet"
+import Banner from "../../components/Banner/Banner"
+import PopularServices from "../../components/PopularServices/PopularServices"
 
 const Home = () => {
     return (
@@ -8,9 +10,10 @@ const Home = () => {
                 <meta charSet="utf-8" />
                 <title>Home</title>
             </Helmet>
-            This is Home
+            <Banner></Banner>
+            <PopularServices></PopularServices>
         </div>
-    );
-};
+    )
+}
 
-export default Home;
+export default Home
