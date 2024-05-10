@@ -1,11 +1,12 @@
 import React from "react"
-import { Link, NavLink } from "react-router-dom"
+import { Link, NavLink, useNavigate } from "react-router-dom"
 import useAuth from "../../hooks/useAuth"
 import toast from "react-hot-toast"
 import Swal from "sweetalert2"
 
 const Navbar = () => {
     const { user, logoutUser, setUser } = useAuth()
+    const navigate = useNavigate()
 
     const handleLogout = () => {
         Swal.fire({
@@ -21,6 +22,7 @@ const Navbar = () => {
                 logoutUser()
                     .then(() => {
                         setUser(null)
+                        navigate("/login")
                         toast.success("Successfully logged out!")
                     })
                     .catch((e) => {
