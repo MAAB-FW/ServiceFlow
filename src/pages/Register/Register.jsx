@@ -6,9 +6,35 @@ import useAuth from "../../hooks/useAuth"
 import toast from "react-hot-toast"
 
 const Register = () => {
-    const { googleSignIn } = useAuth()
+    const { googleSignIn, createUser, updateUserData } = useAuth()
     const navigate = useNavigate()
     const location = useLocation()
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const form = e.target
+        const name = form.name.value
+        const email = form.email.value
+        const photo = form.photo.value
+        const password = form.password.value
+
+        createUser(email, password)
+            .then((r) => {
+                console.log(r.user)
+                toast.success("Successfully Registered!")
+                navigate(location?.state || "/")
+                updateUserData(name, photo)
+                    .then(() => {
+                        console.log("profile info updated")
+                    })
+                    .catch((e) => {
+                        console.log(e)
+                    })
+            })
+            .catch((e) => {
+                e
+            })
+    }
 
     const handleGoogle = (e) => {
         e.preventDefault()
@@ -38,7 +64,7 @@ const Register = () => {
                 </div>
 
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                    <form className="space-y-6" action="#" method="POST">
+                    <form onSubmit={handleSubmit} className="space-y-6" method="POST">
                         <div>
                             <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
                                 Full Name
