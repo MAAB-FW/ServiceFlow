@@ -6,7 +6,7 @@ import Swal from "sweetalert2"
 
 const Navbar = () => {
     const { user, logoutUser, setUser } = useAuth()
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     const handleLogout = () => {
         Swal.fire({
@@ -22,7 +22,7 @@ const Navbar = () => {
                 logoutUser()
                     .then(() => {
                         setUser(null)
-                        navigate("/login")
+                        // navigate("/login")
                         toast.success("Successfully logged out!")
                     })
                     .catch((e) => {

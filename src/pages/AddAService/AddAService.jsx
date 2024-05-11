@@ -31,21 +31,35 @@ const AddAService = () => {
             providerName,
         }
         // console.log(singleService)
-        axios
-            .post(`${import.meta.env.VITE_API_URL}/add-a-service`, singleService)
-            .then((res) => {
-                console.log(res.data)
-                form.reset()
-                Swal.fire({
-                    title: "Service added Successfully!",
-                    // text: "You clicked the button!",
-                    icon: "success",
-                })
-            })
-            .catch((e) => {
-                console.log(e)
-                toast.error("An error Occurred!")
-            })
+        Swal.fire({
+            title: "Are you sure?",
+            // text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Add!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios
+                    .post(`${import.meta.env.VITE_API_URL}/add-a-service`, singleService)
+                    .then((res) => {
+                        console.log(res.data)
+                        if (res.data.insertedId) {
+                            form.reset()
+                            return Swal.fire({
+                                title: "Service added Successfully!",
+                                // text: "You clicked the button!",
+                                icon: "success",
+                            })
+                        }
+                    })
+                    .catch((e) => {
+                        console.log(e)
+                        toast.error("An error Occurred!")
+                    })
+            }
+        })
     }
 
     return (

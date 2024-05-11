@@ -12,6 +12,7 @@ import BookedServices from "../pages/BookedServices/BookedServices"
 import ServiceToDo from "../pages/ServiceToDo/ServiceToDo"
 import Login from "../pages/Login/Login"
 import Register from "../pages/Register/Register"
+import BookNowPage from "../pages/BookNowPage/BookNowPage"
 
 const router = createBrowserRouter([
     {
@@ -40,6 +41,14 @@ const router = createBrowserRouter([
                 element: (
                     <PrivateRoute>
                         <SingleServices></SingleServices>
+                    </PrivateRoute>
+                ),
+            },
+            {
+                path: "/book-now/:id",
+                element: (
+                    <PrivateRoute>
+                        <BookNowPage></BookNowPage>
                     </PrivateRoute>
                 ),
             },

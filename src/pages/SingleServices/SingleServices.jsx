@@ -3,7 +3,7 @@ import axios from "axios"
 import React from "react"
 import { Helmet } from "react-helmet"
 import Loading from "../../components/Loading/Loading"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { IoPricetags } from "react-icons/io5"
 
 const SingleServices = () => {
@@ -39,7 +39,7 @@ const SingleServices = () => {
                 <meta charSet="utf-8" />
                 <title>Single Service Details</title>
             </Helmet>
-            <div className="bg-base-100 flex flex-col md:flex-row gap-7">
+            <div className="my-24 bg-base-100 flex flex-col md:flex-row gap-7">
                 <div className="md:w-2/3 border rounded-lg p-7">
                     <div className="">
                         <div className="flex justify-between">
@@ -49,7 +49,7 @@ const SingleServices = () => {
                                 {price}$
                             </p>
                         </div>
-                        <div className="flex gap-5 mb-2 items-center">
+                        <div className="flex gap-5 mb-4 items-center">
                             <img className="size-10 border border-accent rounded-full" src={providerImage} alt="" />
                             <div className="flex flex-col gap-2">
                                 <p className="font-semibold">{providerName}</p>
@@ -60,7 +60,9 @@ const SingleServices = () => {
                     <figure className="mb-3">
                         <img className="md:h-80 rounded object-cover w-full" src={imageUrl} />
                     </figure>
-                    <p className="text-gray-700">{description}</p>
+                    <p className="text-gray-700">
+                        <span className="font-semibold underline">Description:</span> {description}
+                    </p>
                 </div>
                 <div className="md:w-1/3 flex flex-col-reverse md:flex-col gap-8">
                     <div className="flex flex-col items-center p-7 border rounded-lg w-full">
@@ -71,7 +73,9 @@ const SingleServices = () => {
                             <p className="font-medium text-gray-500">Service Area: {serviceArea}</p>
                         </div>
                     </div>
-                    <button className="btn bg-[#6366f1] text-white">Book Now</button>
+                    <Link to={`/book-now/${id}`} className="btn bg-[#6366f1] text-white">
+                        Book Now
+                    </Link>
                 </div>
             </div>
         </div>
