@@ -8,12 +8,17 @@ import { IoPricetags } from "react-icons/io5"
 import EmptyServices from "../../components/EmptyServices/EmptyServices"
 
 const AllServices = () => {
-    const { data, isPending, error, isError } = useQuery({
+    const {
+        data = [],
+        isPending,
+        error,
+        isError,
+    } = useQuery({
         queryKey: ["services"],
         queryFn: () =>
             axios(`${import.meta.env.VITE_API_URL}/all-services`)
                 .then((res) => {
-                    console.log(res.data)
+                    // console.log(res.data)
                     return res.data
                 })
                 .catch((e) => {
@@ -108,7 +113,10 @@ const AllServices = () => {
                                     </div>
                                     <p className="text-gray-700 my-4">{card.description.slice(0, 97)}...</p>
 
-                                    <div className="card-actions justify-end">
+                                    <div className="card-actions items-center justify-between">
+                                        <p className="font-medium text-gray-500">
+                                            <span className="text-[#010030] font-bold">Service Area:</span> {card.serviceArea}
+                                        </p>
                                         <Link to={`/single-services/${card._id}`} className="btn bg-[#6366f1] text-white">
                                             View Details
                                         </Link>

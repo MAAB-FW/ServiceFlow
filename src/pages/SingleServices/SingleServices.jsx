@@ -70,7 +70,9 @@ const SingleServices = () => {
                         <div className="flex flex-col items-center gap-6">
                             <img className="size-40 rounded-full border" src={providerImage} alt="" />
                             <p className="font-semibold">{providerName}</p>
-                            <p className="font-medium text-gray-500">Service Area: {serviceArea}</p>
+                            <p className="font-medium text-gray-500">
+                                <span className="text-[#010030] font-bold">Service Area:</span> {serviceArea}
+                            </p>
                         </div>
                     </div>
                     <Link to={`/book-now/${id}`} className="btn bg-[#6366f1] text-white">

@@ -7,12 +7,17 @@ import EmptyServices from "../../components/EmptyServices/EmptyServices"
 import { Link } from "react-router-dom"
 
 const PopularServices = () => {
-    const { data, isPending, error, isError } = useQuery({
+    const {
+        data = [],
+        isPending,
+        error,
+        isError,
+    } = useQuery({
         queryKey: ["services"],
         queryFn: () =>
             axios(`${import.meta.env.VITE_API_URL}/all-services`)
                 .then((res) => {
-                    console.log(res.data)
+                    // console.log(res.data)
                     return res.data
                 })
                 .catch((e) => {

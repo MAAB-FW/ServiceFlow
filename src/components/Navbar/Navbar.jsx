@@ -65,8 +65,8 @@ const Navbar = () => {
             </li>
             <li>
                 <details>
-                    <summary className="font-semibold">Dashboard</summary>
-                    <ul className="p-2 w-[170px]">
+                    <summary className="font-semibold ">Dashboard</summary>
+                    <ul className="p-2 w-[170px] z-50">
                         <li>
                             <NavLink className="font-semibold" to="/add-a-service">
                                 Add Service
