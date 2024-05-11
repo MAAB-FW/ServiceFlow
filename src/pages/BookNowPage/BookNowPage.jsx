@@ -67,6 +67,7 @@ const BookNowPage = () => {
                     .then((res) => {
                         console.log(res.data)
                         if (res.data.insertedId) {
+                            e.target.reset()
                             return Swal.fire({
                                 title: "Successfully Purchased!",
                                 // text: "Your file has been deleted.",

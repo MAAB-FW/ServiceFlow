@@ -9,7 +9,7 @@ import { IoPricetags } from "react-icons/io5"
 const SingleServices = () => {
     const { id } = useParams()
     const { data, isPending, error, isError } = useQuery({
-        queryKey: ["services"],
+        queryKey: ["single-services"],
         queryFn: () =>
             axios(`${import.meta.env.VITE_API_URL}/services/${id}`)
                 .then((res) => {

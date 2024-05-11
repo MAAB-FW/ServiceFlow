@@ -87,7 +87,7 @@ const AllServices = () => {
                             >
                                 {/* <figure className="md:w-1/3"> */}
                                 <img
-                                    className="lg:h-80 md:w-2/5 rounded-t-xl md:rounded-l-xl object-cover w-full"
+                                    className="lg:h-80 md:w-2/5 rounded-t-xl md:rounded-r-none md:rounded-l-xl object-cover w-full"
                                     src={card.imageUrl}
                                 />
                                 {/* </figure> */}

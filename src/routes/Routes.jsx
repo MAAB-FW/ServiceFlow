@@ -13,6 +13,7 @@ import ServiceToDo from "../pages/ServiceToDo/ServiceToDo"
 import Login from "../pages/Login/Login"
 import Register from "../pages/Register/Register"
 import BookNowPage from "../pages/BookNowPage/BookNowPage"
+import UpdateService from "../pages/UpdateService/UpdateService"
 
 const router = createBrowserRouter([
     {
@@ -65,6 +66,14 @@ const router = createBrowserRouter([
                 element: (
                     <PrivateRoute>
                         <ManageServices></ManageServices>
+                    </PrivateRoute>
+                ),
+            },
+            {
+                path: "/update-service/:id",
+                element: (
+                    <PrivateRoute>
+                        <UpdateService></UpdateService>
                     </PrivateRoute>
                 ),
             },
