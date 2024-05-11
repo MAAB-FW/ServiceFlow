@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom"
 import useAuth from "../../hooks/useAuth"
 import toast from "react-hot-toast"
 import Swal from "sweetalert2"
+import logo from "/SF.png"
 
 const Navbar = () => {
     const { user, logoutUser, setUser } = useAuth()
@@ -63,33 +64,35 @@ const Navbar = () => {
                     Services
                 </NavLink>
             </li>
-            <li>
-                <details>
-                    <summary className="font-semibold ">Dashboard</summary>
-                    <ul className="p-2 w-[170px] z-50">
-                        <li>
-                            <NavLink className="font-semibold" to="/add-a-service">
-                                Add Service
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink className="font-semibold" to="/manage-services">
-                                Manage Service
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink className="font-semibold" to="/booked-services">
-                                Booked-Services
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink className="font-semibold" to="/service-to-do">
-                                Service-To-Do
-                            </NavLink>
-                        </li>
-                    </ul>
-                </details>
-            </li>
+            {user && (
+                <li>
+                    <details>
+                        <summary className="font-semibold ">Dashboard</summary>
+                        <ul className="p-2 w-[170px] z-50">
+                            <li>
+                                <NavLink className="font-semibold" to="/add-a-service">
+                                    Add Service
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink className="font-semibold" to="/manage-services">
+                                    Manage Service
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink className="font-semibold" to="/booked-services">
+                                    Booked-Services
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink className="font-semibold" to="/service-to-do">
+                                    Service-To-Do
+                                </NavLink>
+                            </li>
+                        </ul>
+                    </details>
+                </li>
+            )}
         </>
     )
 
@@ -113,7 +116,8 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <Link to="/" className="btn btn-ghost text-xl">
-                    ServiceFlow
+                    <img src={logo} className="w-12" alt="" />
+                    <span className=" hidden md:flex">ServiceFlow</span>
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">

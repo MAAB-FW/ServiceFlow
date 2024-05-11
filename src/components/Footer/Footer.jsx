@@ -2,13 +2,15 @@ import React from "react"
 import { FaFacebook } from "react-icons/fa"
 import { GrLinkedin } from "react-icons/gr"
 import { Link } from "react-router-dom"
+import logo from '/SF.png'
 
 const Footer = () => {
     return (
         <footer className="bg-[#f3f4f6] dark:bg-gray-900">
             <div className="container px-6 py-8 mx-auto">
                 <div className="flex flex-col items-center text-center">
-                    <Link to='/' className="font-extrabold text-2xl">
+                    <Link to='/' className="flex items-center font-extrabold text-2xl">
+                    <img src={logo} className="w-12" alt="" />
                     ServiceFlow
                     </Link>
 
