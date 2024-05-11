@@ -3,6 +3,7 @@ import SingleServiceCard from "../SingleServiceCard/SingleServiceCard"
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import Loading from "../Loading/Loading"
+import EmptyServices from "../../components/EmptyServices/EmptyServices"
 
 const PopularServices = () => {
     const { data, isPending, error, isError } = useQuery({
@@ -10,7 +11,7 @@ const PopularServices = () => {
         queryFn: () =>
             axios(`${import.meta.env.VITE_API_URL}/all-services`)
                 .then((res) => {
-                    // console.log(res.data)
+                    console.log(res.data)
                     return res.data
                 })
                 .catch((e) => {
@@ -39,9 +40,11 @@ const PopularServices = () => {
                 </p>
             </div>
             <div className="my-16 grid grid-cols-1 md:grid-cols-2 gap-6">
-                {data?.slice(0, 6).map((card) => (
-                    <SingleServiceCard key={card._id} card={card}></SingleServiceCard>
-                ))}
+                {data.length > 0 ? (
+                    data?.slice(0, 6)?.map((card) => <SingleServiceCard key={card._id} card={card}></SingleServiceCard>)
+                ) : (
+                    <EmptyServices></EmptyServices>
+                )}
             </div>
         </div>
     )

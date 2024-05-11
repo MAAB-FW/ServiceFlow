@@ -1,13 +1,14 @@
 import React from "react"
 import { IoPricetags } from "react-icons/io5"
 import { Link } from "react-router-dom"
+import PropTypes from "prop-types"
 
 const SingleServiceCard = ({ card }) => {
     const { _id, imageUrl, serviceName, price, description, providerImage, providerName } = card || {}
     return (
         <div className="card card-compact bg-base-100 shadow-xl">
             <div className="card-body">
-                <div className="flex gap-5 mb-2">
+                <div className="flex gap-5 mb-2 items-center">
                     <img className="size-14 border border-accent rounded-full" src={providerImage} alt="" />
                     <div className="flex flex-col gap-2">
                         <p className="font-semibold">{providerName}</p>
@@ -22,7 +23,7 @@ const SingleServiceCard = ({ card }) => {
                     <h2 className="card-title text-[#010030] text-2xl">{serviceName}</h2>
                     <p className="flex items-center justify-end gap-3 text-lg text-success">
                         <IoPricetags />
-                        {price}
+                        {price}$
                     </p>
                 </div>
                 <p className="text-gray-700">{description.slice(0, 97)}...</p>
@@ -38,3 +39,7 @@ const SingleServiceCard = ({ card }) => {
 }
 
 export default SingleServiceCard
+
+SingleServiceCard.propTypes = {
+    card: PropTypes.object,
+}

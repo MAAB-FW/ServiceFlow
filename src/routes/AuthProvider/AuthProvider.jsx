@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { createContext, useEffect, useState } from "react"
 import {
     GoogleAuthProvider,
@@ -10,6 +9,7 @@ import {
     updateProfile,
 } from "firebase/auth"
 import auth from "../../firebase/firebase.config"
+import PropTypes from "prop-types"
 
 export const AuthContext = createContext()
 
@@ -65,3 +65,7 @@ const AuthProvider = ({ children }) => {
 }
 
 export default AuthProvider
+
+AuthProvider.propTypes = {
+    children: PropTypes.node,
+}
