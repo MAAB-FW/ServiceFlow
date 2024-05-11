@@ -5,6 +5,7 @@ import Loading from "../../components/Loading/Loading"
 import axios from "axios"
 import useAuth from "../../hooks/useAuth"
 import Swal from "sweetalert2"
+import { Helmet } from "react-helmet"
 
 const BookNowPage = () => {
     const { user } = useAuth()
@@ -82,6 +83,10 @@ const BookNowPage = () => {
 
     return (
         <div>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Book Now</title>
+            </Helmet>
             <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
                 <h2 className="text-xl font-semibold text-gray-700 mb-7 uppercase dark:text-white text-center">Book Service</h2>
 

@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import Loading from "../Loading/Loading"
 import EmptyServices from "../../components/EmptyServices/EmptyServices"
+import { Link } from "react-router-dom"
 
 const PopularServices = () => {
     const { data, isPending, error, isError } = useQuery({
@@ -45,6 +46,11 @@ const PopularServices = () => {
                 ) : (
                     <EmptyServices></EmptyServices>
                 )}
+            </div>
+            <div className="flex justify-center">
+                <Link to="/all-services" className="btn btn-info text-white">
+                    Show All
+                </Link>
             </div>
         </div>
     )
