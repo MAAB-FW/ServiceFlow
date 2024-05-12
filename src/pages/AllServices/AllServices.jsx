@@ -2,62 +2,75 @@ import React, { useEffect, useState } from "react"
 import { Helmet } from "react-helmet"
 import Loading from "../../components/Loading/Loading"
 import axios from "axios"
-import { useQuery } from "@tanstack/react-query"
+// import { useQuery } from "@tanstack/react-query"
 import { Link } from "react-router-dom"
 import { IoPricetags } from "react-icons/io5"
 import EmptyServices from "../../components/EmptyServices/EmptyServices"
 
 const AllServices = () => {
     const [text, setText] = useState("")
-    // const [data, setData] = useState([])
+    const [data, setData] = useState([])
+    const [isPending, setLoad] = useState(true)
 
-    const {
-        data = [],
-        isPending,
-        refetch,
-        error,
-        isError,
-    } = useQuery({
-        queryKey: ["services"],
-        queryFn: () =>
-            axios(`${import.meta.env.VITE_API_URL}/all-services?search=${text}`)
-                .then((res) => {
-                    // console.log(res.data)
-                    return res.data
-                })
-                .catch((e) => {
-                    console.log(e)
-                }),
-    })
+    // const {
+    //     data = [],
+    //     isPending,
+    //     refetch,
+    //     error,
+    //     isError,
+    // } = useQuery({
+    //     queryKey: ["services"],
+    //     queryFn: () =>
+    //         axios(`${import.meta.env.VITE_API_URL}/all-services?search=${text}`)
+    //             .then((res) => {
+    //                 // console.log(res.data)
+    //                 return res.data
+    //             })
+    //             .catch((e) => {
+    //                 console.log(e)
+    //             }),
+    // })
     // console.log(data)
 
-    // useEffect(() => {
-    //     axios(`${import.meta.env.VITE_API_URL}/all-services?search=${text}`)
-    //         .then((res) => {
-    //             // console.log(res.data)
-    //             return setData(res.data)
-    //         })
-    //         .catch((e) => {
-    //             console.log(e)
-    //         })
-    // }, [text])
+    useEffect(() => {
+        setLoad(true)
+        axios(`${import.meta.env.VITE_API_URL}/all-services`)
+            .then((res) => {
+                // console.log(res.data)
+                setLoad(false)
+                return setData(res.data)
+            })
+            .catch((e) => {
+                console.log(e)
+            })
+    }, [])
+    useEffect(() => {
+        axios(`${import.meta.env.VITE_API_URL}/all-services?search=${text}`)
+            .then((res) => {
+                // console.log(res.data)
+                return setData(res.data)
+            })
+            .catch((e) => {
+                console.log(e)
+            })
+    }, [text])
 
     const handleSearch = (text) => {
         console.log(text)
         // if (!text) setText(" ")
-        refetch()
+        // refetch()
         setText(text)
     }
 
     if (isPending) return <Loading></Loading>
 
-    if (isError || error)
-        return (
-            <div className="grid place-content-center bg-white px-4">
-                <h1 className="uppercase tracking-widest text-gray-500">Something went wrong</h1>
-                <p>{error.message}</p>
-            </div>
-        )
+    // if (isError || error)
+    //     return (
+    //         <div className="grid place-content-center bg-white px-4">
+    //             <h1 className="uppercase tracking-widest text-gray-500">Something went wrong</h1>
+    //             <p>{error.message}</p>
+    //         </div>
+    //     )
     return (
         <div>
             <Helmet>
