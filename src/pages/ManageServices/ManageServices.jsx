@@ -137,7 +137,7 @@ const ManageServices = () => {
                             </div>
                         ))
                     ) : (
-                        <EmptyServices></EmptyServices>
+                        <EmptyServices name={{ name: "Services" }}></EmptyServices>
                     )}
                 </div>
             </div>

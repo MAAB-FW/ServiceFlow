@@ -13,7 +13,7 @@ const PopularServices = () => {
         error,
         isError,
     } = useQuery({
-        queryKey: ["services"],
+        queryKey: ["popular-services"],
         queryFn: () =>
             axios(`${import.meta.env.VITE_API_URL}/all-services`)
                 .then((res) => {
@@ -49,7 +49,7 @@ const PopularServices = () => {
                 {data.length > 0 ? (
                     data?.slice(0, 6)?.map((card) => <SingleServiceCard key={card._id} card={card}></SingleServiceCard>)
                 ) : (
-                    <EmptyServices></EmptyServices>
+                    <EmptyServices name={{ name: "Services" }}></EmptyServices>
                 )}
             </div>
             <div className="flex justify-center">

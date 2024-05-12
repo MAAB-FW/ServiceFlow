@@ -11,7 +11,7 @@ const BookNowPage = () => {
     const { user } = useAuth()
     const { id } = useParams()
     const { data, isPending, error, isError } = useQuery({
-        queryKey: ["services"],
+        queryKey: ["book-now-services"],
         queryFn: () =>
             axios(`${import.meta.env.VITE_API_URL}/services/${id}`)
                 .then((res) => {
@@ -63,7 +63,7 @@ const BookNowPage = () => {
             if (result.isConfirmed) {
                 console.log(bookedData)
                 axios
-                    .post(`${import.meta.env.VITE_API_URL}/all-bookings`, bookedData)
+                    .post(`${import.meta.env.VITE_API_URL}/add-bookings`, bookedData)
                     .then((res) => {
                         console.log(res.data)
                         if (res.data.insertedId) {
