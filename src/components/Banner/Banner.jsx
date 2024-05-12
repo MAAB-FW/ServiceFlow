@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
 import { FiArrowUpRight } from "react-icons/fi"
 import { Link } from "react-router-dom"
 
 const Banner = () => {
+    const [hover, setHover] = useState(false)
     return (
         <div className="md:-ml-[8%] md:-mr-[8%] -ml-[5%] -mr-[5%] flex flex-col md:flex-row justify-between bg-base-100">
             <div className="md:w-1/2 flex flex-col justify-center items-center text-center md:text-left">
@@ -15,8 +16,13 @@ const Banner = () => {
                     commercial clients, we offer fast turnaround times and competitive rates.
                 </p>
                 <div className="flex items-start md:w-2/3 mt-5">
-                    <Link to="/all-services" className="btn btn-info text-white">
-                        All Services <FiArrowUpRight className="text-xl" />
+                    <Link
+                        to="/all-services"
+                        onMouseOver={() => setHover(true)}
+                        onMouseOut={() => setHover(false)}
+                        className="btn btn-info text-white"
+                    >
+                        All Services <FiArrowUpRight className={`text-xl ${hover && "rotate-45"}`} />
                     </Link>
                 </div>
             </div>

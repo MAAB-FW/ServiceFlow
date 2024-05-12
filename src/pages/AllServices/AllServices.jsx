@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Helmet } from "react-helmet"
 import Loading from "../../components/Loading/Loading"
 import axios from "axios"
@@ -8,15 +8,19 @@ import { IoPricetags } from "react-icons/io5"
 import EmptyServices from "../../components/EmptyServices/EmptyServices"
 
 const AllServices = () => {
+    const [text, setText] = useState("")
+    // const [data, setData] = useState([])
+
     const {
         data = [],
         isPending,
+        refetch,
         error,
         isError,
     } = useQuery({
         queryKey: ["services"],
         queryFn: () =>
-            axios(`${import.meta.env.VITE_API_URL}/all-services`)
+            axios(`${import.meta.env.VITE_API_URL}/all-services?search=${text}`)
                 .then((res) => {
                     // console.log(res.data)
                     return res.data
@@ -26,6 +30,24 @@ const AllServices = () => {
                 }),
     })
     // console.log(data)
+
+    // useEffect(() => {
+    //     axios(`${import.meta.env.VITE_API_URL}/all-services?search=${text}`)
+    //         .then((res) => {
+    //             // console.log(res.data)
+    //             return setData(res.data)
+    //         })
+    //         .catch((e) => {
+    //             console.log(e)
+    //         })
+    // }, [text])
+
+    const handleSearch = (text) => {
+        console.log(text)
+        // if (!text) setText(" ")
+        refetch()
+        setText(text)
+    }
 
     if (isPending) return <Loading></Loading>
 
@@ -65,17 +87,18 @@ const AllServices = () => {
                         </div>
 
                         <input
+                            onChange={(e) => handleSearch(e.target.value)}
                             className="peer h-full w-full outline-none text-sm text-gray-700 pr-2"
                             type="text"
                             id="search"
                             placeholder="Search something.."
                         />
-                        <button
+                        {/* <button
                             type="submit"
                             className="text-white absolute end-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                         >
                             Search
-                        </button>
+                        </button> */}
                     </div>
                 </div>
                 <div className=" flex flex-col gap-6">
