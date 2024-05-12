@@ -63,7 +63,7 @@ const BookedServices = () => {
                                     <div className="flex gap-5 mb-2 items-center">
                                         <div className="flex flex-col gap-2">
                                             <p className="font-semibold">{card.providerName}</p>
-                                            <p className="font-mono">{card.providerEmail}</p>
+                                            {/* <p className="font-mono">{card.providerEmail}</p> */}
                                             <p className="text-gray-500">Service Provider</p>
                                         </div>
                                     </div>
