@@ -22,25 +22,25 @@ const AuthProvider = ({ children }) => {
 
     // sign in with google
     const googleSignIn = () => {
-        setLoading(true)
+        // setLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
 
     // create user
     const createUser = (email, password) => {
-        setLoading(true)
+        // setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     // login user
     const loginUser = (email, password) => {
-        setLoading(true)
+        // setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     // update user info
     const updateUserData = (name, photo) => {
-        setLoading(true)
+        // setLoading(true)
         return updateProfile(auth.currentUser, {
             displayName: name,
             photoURL: photo,
@@ -62,7 +62,7 @@ const AuthProvider = ({ children }) => {
     }, [])
 
     const AuthData = { user, loading, createUser, googleSignIn, logoutUser, loginUser, setUser, updateUserData }
-    if (loading) return <Loading></Loading>
+    if (loading) return <Loading status={true}></Loading>
     return <AuthContext.Provider value={AuthData}>{children}</AuthContext.Provider>
 }
 

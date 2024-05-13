@@ -72,42 +72,30 @@ const ServiceToDo = () => {
                             </p>
                         </caption> */}
                         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                            <tr>
-                                <th scope="col" className="px-6 py-3">
-                                    Service name
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    Price
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    User Name
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    Service Date
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    instruction
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    Status
-                                </th>
+                            <tr className="*:px-6 *:py-3">
+                                <th scope="col">Service name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">User Name</th>
+                                <th scope="col">Service Date</th>
+                                <th scope="col">instruction</th>
+                                <th scope="col">Status</th>
                             </tr>
                         </thead>
                         <tbody>
                             {data.length > 0 ? (
                                 data?.map((card) => (
-                                    <tr key={card._id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                        <th
-                                            scope="row"
-                                            className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                                        >
+                                    <tr
+                                        key={card._id}
+                                        className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 *:px-6 *:py-4"
+                                    >
+                                        <th scope="row" className=" font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                             {card.serviceName}
                                         </th>
-                                        <td className="px-6 py-4">{card.price}</td>
-                                        <td className="px-6 py-4">{card.userName}</td>
-                                        <td className="px-6 py-4">{card.serviceDate}</td>
-                                        <td className="px-6 py-4 ">{card.instruction}</td>
-                                        <td className="px-6 py-4 ">
+                                        <td>{card.price}</td>
+                                        <td>{card.userName}</td>
+                                        <td>{card.serviceDate}</td>
+                                        <td>{card.instruction}</td>
+                                        <td>
                                             <select
                                                 onChange={(e) => {
                                                     // console.log("changed", e.target.value)
