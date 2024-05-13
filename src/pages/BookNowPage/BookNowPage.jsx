@@ -2,18 +2,21 @@ import { useQuery } from "@tanstack/react-query"
 import React from "react"
 import { useParams } from "react-router-dom"
 import Loading from "../../components/Loading/Loading"
-import axios from "axios"
+// import axios from "axios"
 import useAuth from "../../hooks/useAuth"
 import Swal from "sweetalert2"
 import { Helmet } from "react-helmet"
+import useSecureAxios from "../../hooks/useSecureAxios"
 
 const BookNowPage = () => {
     const { user } = useAuth()
     const { id } = useParams()
+    const secureAxios = useSecureAxios()
+
     const { data, isPending, error, isError } = useQuery({
         queryKey: ["book-now-services"],
         queryFn: () =>
-            axios(`${import.meta.env.VITE_API_URL}/services/${id}`)
+            secureAxios(`/services/${id}`)
                 .then((res) => {
                     // console.log(res.data)
                     return res.data
@@ -62,8 +65,8 @@ const BookNowPage = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 console.log(bookedData)
-                axios
-                    .post(`${import.meta.env.VITE_API_URL}/add-bookings`, bookedData)
+                secureAxios
+                    .post(`/add-bookings`, bookedData)
                     .then((res) => {
                         console.log(res.data)
                         if (res.data.insertedId) {

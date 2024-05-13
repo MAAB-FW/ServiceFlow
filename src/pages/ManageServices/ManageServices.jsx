@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@tanstack/react-query"
-import axios from "axios"
+// import axios from "axios"
 import React from "react"
 import { Helmet } from "react-helmet"
 import Loading from "../../components/Loading/Loading"
@@ -8,8 +8,10 @@ import { Link } from "react-router-dom"
 import { IoPricetags } from "react-icons/io5"
 import useAuth from "../../hooks/useAuth"
 import Swal from "sweetalert2"
+import useSecureAxios from "../../hooks/useSecureAxios"
 
 const ManageServices = () => {
+    const secureAxios = useSecureAxios()
     const { user } = useAuth()
     const {
         data = [],
@@ -20,7 +22,7 @@ const ManageServices = () => {
     } = useQuery({
         queryKey: ["manage-services"],
         queryFn: () =>
-            axios(`${import.meta.env.VITE_API_URL}/manage-services?email=${user?.email}`, { withCredentials: true })
+            secureAxios(`/manage-services?email=${user?.email}`)
                 .then((res) => {
                     // console.log(res.data)
                     return res.data
@@ -33,8 +35,8 @@ const ManageServices = () => {
 
     const { mutate } = useMutation({
         mutationFn: ({ id }) => {
-            axios
-                .delete(`${import.meta.env.VITE_API_URL}/delete-service/${id}`)
+            secureAxios
+                .delete(`/delete-service/${id}`)
                 .then((res) => {
                     console.log(res.data)
                     if (res.data.deletedCount > 0) {

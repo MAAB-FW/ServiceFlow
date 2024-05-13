@@ -2,13 +2,15 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import useAuth from "../../hooks/useAuth"
 import { useQuery } from "@tanstack/react-query"
-import axios from "axios"
+// import axios from "axios"
 import Loading from "../../components/Loading/Loading"
 import EmptyServices from "../../components/EmptyServices/EmptyServices"
 import { IoPricetags } from "react-icons/io5"
+import useSecureAxios from "../../hooks/useSecureAxios"
 
 const BookedServices = () => {
     const { user } = useAuth()
+    const secureAxios = useSecureAxios()
     const {
         data = [],
         isPending,
@@ -17,7 +19,7 @@ const BookedServices = () => {
     } = useQuery({
         queryKey: ["booked-services"],
         queryFn: () =>
-            axios(`${import.meta.env.VITE_API_URL}/all-bookings?email=${user?.email}`, { withCredentials: true })
+            secureAxios(`/all-bookings?email=${user?.email}`, { withCredentials: true })
                 .then((res) => {
                     // console.log(res.data)
                     return res.data

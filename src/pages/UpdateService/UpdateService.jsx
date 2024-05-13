@@ -2,17 +2,20 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { useParams } from "react-router-dom"
 import Loading from "../../components/Loading/Loading"
-import axios from "axios"
+// import axios from "axios"
 import { useQuery } from "@tanstack/react-query"
 import Swal from "sweetalert2"
 import toast from "react-hot-toast"
+import useSecureAxios from "../../hooks/useSecureAxios"
 
 const UpdateService = () => {
     const { id } = useParams()
-    const { data, isPending, error, isError } = useQuery({
+    const secureAxios = useSecureAxios()
+
+    const { data, isPending, refetch, error, isError } = useQuery({
         queryKey: ["update-service"],
         queryFn: () =>
-            axios(`${import.meta.env.VITE_API_URL}/services/${id}`)
+            secureAxios(`/services/${id}`)
                 .then((res) => {
                     // console.log(res.data)
                     return res.data
@@ -61,11 +64,12 @@ const UpdateService = () => {
             confirmButtonText: "Yes, Update!",
         }).then((result) => {
             if (result.isConfirmed) {
-                axios
-                    .patch(`${import.meta.env.VITE_API_URL}/update-service/${id}`, singleService)
+                secureAxios
+                    .patch(`/update-service/${id}`, singleService)
                     .then((res) => {
                         console.log(res.data)
                         if (res.data.modifiedCount > 0) {
+                            refetch()
                             return Swal.fire({
                                 title: "Service Updated Successfully!",
                                 // text: "You clicked the button!",

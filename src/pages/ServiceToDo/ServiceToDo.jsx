@@ -2,12 +2,15 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import EmptyServices from "../../components/EmptyServices/EmptyServices"
 import Loading from "../../components/Loading/Loading"
-import axios from "axios"
+// import axios from "axios"
 import { useMutation, useQuery } from "@tanstack/react-query"
 import useAuth from "../../hooks/useAuth"
+import useSecureAxios from "../../hooks/useSecureAxios"
 
 const ServiceToDo = () => {
     const { user } = useAuth()
+    const secureAxios = useSecureAxios()
+
     const {
         data = [],
         isPending,
@@ -17,7 +20,7 @@ const ServiceToDo = () => {
     } = useQuery({
         queryKey: ["service-to-do"],
         queryFn: () =>
-            axios(`${import.meta.env.VITE_API_URL}/all-bookings-s-to-do?email=${user?.email}`)
+            secureAxios(`/all-bookings-s-to-do?email=${user?.email}`)
                 .then((res) => {
                     // console.log(res.data)
                     return res.data
@@ -31,8 +34,8 @@ const ServiceToDo = () => {
     const { mutate } = useMutation({
         mutationFn: ({ status, id }) => {
             console.log(status)
-            axios
-                .patch(`${import.meta.env.VITE_API_URL}/all-bookings-s-to-do/${id}`, { status })
+            secureAxios
+                .patch(`/all-bookings-s-to-do/${id}`, { status })
                 .then((res) => {
                     console.log(res.data)
                     refetch()

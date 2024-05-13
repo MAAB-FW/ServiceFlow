@@ -1,17 +1,20 @@
 import { useQuery } from "@tanstack/react-query"
-import axios from "axios"
+// import axios from "axios"
 import React from "react"
 import { Helmet } from "react-helmet"
 import Loading from "../../components/Loading/Loading"
 import { Link, useParams } from "react-router-dom"
 import { IoPricetags } from "react-icons/io5"
+import useSecureAxios from "../../hooks/useSecureAxios"
 
 const SingleServices = () => {
     const { id } = useParams()
+    const secureAxios = useSecureAxios()
+
     const { data, isPending, error, isError } = useQuery({
         queryKey: ["single-services"],
         queryFn: () =>
-            axios(`${import.meta.env.VITE_API_URL}/services/${id}`)
+            secureAxios(`/services/${id}`)
                 .then((res) => {
                     // console.log(res.data)
                     return res.data

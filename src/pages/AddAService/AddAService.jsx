@@ -1,13 +1,14 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 import useAuth from "../../hooks/useAuth"
-import axios from "axios"
+// import axios from "axios"
 import Swal from "sweetalert2"
 import toast from "react-hot-toast"
+import useSecureAxios from "../../hooks/useSecureAxios"
 
 const AddAService = () => {
     const { user } = useAuth()
-
+    const secureAxios = useSecureAxios()
     const handleAddAService = (e) => {
         e.preventDefault()
         const form = e.target
@@ -41,8 +42,8 @@ const AddAService = () => {
             confirmButtonText: "Yes, Add!",
         }).then((result) => {
             if (result.isConfirmed) {
-                axios
-                    .post(`${import.meta.env.VITE_API_URL}/add-a-service`, singleService)
+                secureAxios
+                    .post(`/add-a-service`, singleService)
                     .then((res) => {
                         console.log(res.data)
                         if (res.data.insertedId) {
