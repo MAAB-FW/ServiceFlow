@@ -1,15 +1,16 @@
 import React from "react"
 import { Helmet } from "react-helmet"
-import { Link, useLocation, useNavigate } from "react-router-dom"
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom"
 import { FcGoogle } from "react-icons/fc"
 import useAuth from "../../hooks/useAuth"
 import toast from "react-hot-toast"
 
 const Login = () => {
-    const { googleSignIn, loginUser } = useAuth()
+    const { user, googleSignIn, loginUser } = useAuth()
     const navigate = useNavigate()
     const location = useLocation()
-
+    if (user) return <Navigate to={"/"} replace></Navigate>
+    
     const handleLogin = (e) => {
         e.preventDefault()
         const form = e.target
