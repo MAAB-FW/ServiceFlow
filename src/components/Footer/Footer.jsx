@@ -2,16 +2,16 @@ import React from "react"
 import { FaFacebook } from "react-icons/fa"
 import { GrLinkedin } from "react-icons/gr"
 import { Link } from "react-router-dom"
-import logo from '/SF.png'
+import logo from "/SF.png"
 
 const Footer = () => {
     return (
-        <footer className="bg-[#f3f4f6] dark:bg-gray-900">
+        <footer className="bg-base-200 dark:bg-gray-900">
             <div className="container px-6 py-8 mx-auto">
                 <div className="flex flex-col items-center text-center">
-                    <Link to='/' className="flex items-center font-extrabold text-2xl">
-                    <img src={logo} className="w-12" alt="" />
-                    ServiceFlow
+                    <Link to="/" className="flex items-center font-extrabold text-2xl">
+                        <img src={logo} className="w-12" alt="" />
+                        ServiceFlow
                     </Link>
 
                     <div className="flex flex-wrap justify-center mt-6 -mx-4">
@@ -63,16 +63,11 @@ const Footer = () => {
                     <p className="text-sm text-gray-500 dark:text-gray-300">© Copyright 2024. All Rights Reserved.</p>
 
                     <div className="flex -mx-2 mt-6 lg:mt-0">
-
-                        <Link
-                            className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 text-xl hover:text-blue-500 dark:hover:text-blue-400"
-                        >
+                        <Link className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 text-xl hover:text-blue-500 dark:hover:text-blue-400">
                             <FaFacebook />
                         </Link>
 
-                        <Link
-                            className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 text-xl hover:text-blue-500 dark:hover:text-blue-400"
-                        >
+                        <Link className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 text-xl hover:text-blue-500 dark:hover:text-blue-400">
                             <GrLinkedin />
                         </Link>
                     </div>

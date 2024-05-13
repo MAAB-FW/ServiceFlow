@@ -75,7 +75,7 @@ const SingleServices = () => {
                             </p>
                         </div>
                     </div>
-                    <Link to={`/book-now/${id}`} className="btn bg-[#6366f1] text-white">
+                    <Link to={`/book-now/${id}`} className="btn btn-success text-white">
                         Book Now
                     </Link>
                 </div>

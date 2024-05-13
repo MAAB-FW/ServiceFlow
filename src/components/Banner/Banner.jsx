@@ -22,7 +22,7 @@ const Banner = () => {
                         onMouseOut={() => setHover(false)}
                         className="btn btn-info text-white"
                     >
-                        All Services <FiArrowUpRight className={`text-xl ${hover && "rotate-45"}`} />
+                        All Services <FiArrowUpRight className={`text-xl duration-300 ${hover && " rotate-45"}`} />
                     </Link>
                 </div>
             </div>

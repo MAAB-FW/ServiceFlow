@@ -153,7 +153,7 @@ const AllServices = () => {
                                         <p className="font-medium text-gray-500">
                                             <span className="text-[#010030] font-bold">Service Area:</span> {card.serviceArea}
                                         </p>
-                                        <Link to={`/single-services/${card._id}`} className="btn bg-[#6366f1] text-white">
+                                        <Link to={`/single-services/${card._id}`} className="btn bg-[#6366f1] hover:bg-[#4345a4] text-white">
                                             View Details
                                         </Link>
                                     </div>

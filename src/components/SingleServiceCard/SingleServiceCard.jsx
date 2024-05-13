@@ -29,7 +29,7 @@ const SingleServiceCard = ({ card }) => {
                 <p className="text-gray-700">{description.slice(0, 97)}...</p>
 
                 <div className="card-actions justify-end">
-                    <Link to={`/single-services/${_id}`} className="btn bg-[#6366f1] text-white">
+                    <Link to={`/single-services/${_id}`} className="btn bg-[#6366f1] hover:bg-[#4345a4] text-white">
                         View Details
                     </Link>
                 </div>
