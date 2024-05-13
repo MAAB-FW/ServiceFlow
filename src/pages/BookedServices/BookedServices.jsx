@@ -17,7 +17,7 @@ const BookedServices = () => {
     } = useQuery({
         queryKey: ["booked-services"],
         queryFn: () =>
-            axios(`${import.meta.env.VITE_API_URL}/all-bookings?email=${user?.email}`)
+            axios(`${import.meta.env.VITE_API_URL}/all-bookings?email=${user?.email}`, { withCredentials: true })
                 .then((res) => {
                     // console.log(res.data)
                     return res.data
