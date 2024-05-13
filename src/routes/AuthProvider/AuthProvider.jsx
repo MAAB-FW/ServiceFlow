@@ -10,6 +10,7 @@ import {
 } from "firebase/auth"
 import auth from "../../firebase/firebase.config"
 import PropTypes from "prop-types"
+import Loading from "../../components/Loading/Loading"
 
 export const AuthContext = createContext()
 
@@ -61,6 +62,7 @@ const AuthProvider = ({ children }) => {
     }, [])
 
     const AuthData = { user, loading, createUser, googleSignIn, logoutUser, loginUser, setUser, updateUserData }
+    if (loading) return <Loading></Loading>
     return <AuthContext.Provider value={AuthData}>{children}</AuthContext.Provider>
 }
 

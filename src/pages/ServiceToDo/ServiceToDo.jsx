@@ -15,7 +15,7 @@ const ServiceToDo = () => {
         error,
         isError,
     } = useQuery({
-        queryKey: ["booked-services"],
+        queryKey: ["service-to-do"],
         queryFn: () =>
             axios(`${import.meta.env.VITE_API_URL}/all-bookings-s-to-do?email=${user?.email}`)
                 .then((res) => {
@@ -115,15 +115,21 @@ const ServiceToDo = () => {
                                                 }}
                                                 name=""
                                                 id=""
-                                                className={`
+                                                className={`select select-bordered font-semibold *:font-semibold
                                                 ${card.status === "pending" && "text-red-500"}
                                                 ${card.status === "working" && "text-yellow-500"}
                                                 ${card.status === "completed" && "text-green-500"}`}
                                                 defaultValue={card.status}
                                             >
-                                                <option value="pending">pending</option>
-                                                <option value="working">working</option>
-                                                <option value="completed">completed</option>
+                                                <option className="text-red-500" value="pending">
+                                                    pending
+                                                </option>
+                                                <option className="text-yellow-500" value="working">
+                                                    working
+                                                </option>
+                                                <option className="text-green-500" value="completed">
+                                                    completed
+                                                </option>
                                             </select>
                                         </td>
                                     </tr>
