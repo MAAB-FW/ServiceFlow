@@ -20,7 +20,7 @@ const ManageServices = () => {
     } = useQuery({
         queryKey: ["manage-services"],
         queryFn: () =>
-            axios(`${import.meta.env.VITE_API_URL}/all-services?email=${user?.email}`)
+            axios(`${import.meta.env.VITE_API_URL}/manage-services?email=${user?.email}`, { withCredentials: true })
                 .then((res) => {
                     // console.log(res.data)
                     return res.data

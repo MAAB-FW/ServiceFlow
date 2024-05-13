@@ -123,7 +123,11 @@ const ServiceToDo = () => {
                                     </tr>
                                 ))
                             ) : (
-                                <EmptyServices name={{ name: "Bookings" }}></EmptyServices>
+                                <tr>
+                                    <td colSpan={6}>
+                                        <EmptyServices name={{ name: "Services" }}></EmptyServices>
+                                    </td>
+                                </tr>
                             )}
                         </tbody>
                     </table>

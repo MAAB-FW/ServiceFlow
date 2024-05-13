@@ -11,6 +11,7 @@ import {
 import auth from "../../firebase/firebase.config"
 import PropTypes from "prop-types"
 import Loading from "../../components/Loading/Loading"
+import axios from "axios"
 
 export const AuthContext = createContext()
 
@@ -57,9 +58,20 @@ const AuthProvider = ({ children }) => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser)
             setLoading(false)
+            const userEmail = currentUser?.email || user?.email || ""
+            const loggedUser = { userEmail }
+            if (currentUser) {
+                axios.post(`${import.meta.env.VITE_API_URL}/jwt`, loggedUser, { withCredentials: true }).then((res) => {
+                    console.log(res.data)
+                })
+            } else {
+                axios.post(`${import.meta.env.VITE_API_URL}/logout`, loggedUser, { withCredentials: true }).then((res) => {
+                    console.log(res.data)
+                })
+            }
         })
         return () => unSubscribe()
-    }, [])
+    }, [user?.email])
 
     const AuthData = { user, loading, createUser, googleSignIn, logoutUser, loginUser, setUser, updateUserData }
     if (loading) return <Loading status={true}></Loading>

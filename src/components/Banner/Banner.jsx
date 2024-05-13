@@ -27,7 +27,7 @@ const Banner = () => {
                 </div>
             </div>
             <img
-                className="md:w-1/2 h-[500px] -my-9 object-contain"
+                className="md:w-1/2 h-[500px] md:-my-9 object-contain"
                 src="https://cdn.dribbble.com/users/3737023/screenshots/19571641/media/6743a6a0dd318b67d732d6a23cb7ad78.gif"
                 alt=""
             />
