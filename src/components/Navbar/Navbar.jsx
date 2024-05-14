@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Link, NavLink } from "react-router-dom"
 import useAuth from "../../hooks/useAuth"
 import toast from "react-hot-toast"
@@ -8,6 +8,17 @@ import logo from "/SF.png"
 const Navbar = () => {
     const { user, logoutUser, setUser } = useAuth()
     // const navigate = useNavigate()
+    const [show, setShow] = useState(true)
+    const [last, setLast] = useState(0)
+
+    useEffect(() => {
+        const handleChange = () => {
+            if (last < window.scrollY) setShow(false)
+            else setShow(true)
+            if (window.scrollY > 500) setLast(window.scrollY)
+        }
+        window.addEventListener("scroll", handleChange)
+    }, [last])
 
     const handleLogout = () => {
         Swal.fire({
@@ -97,7 +108,7 @@ const Navbar = () => {
     )
 
     return (
-        <div className="navbar p-0 bg-base-100 px-4 shadow-lg z-50">
+        <div className={`navbar p-0 bg-base-100 px-4 shadow-lg z-50 ${show && "sticky top-0"}`}>
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

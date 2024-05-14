@@ -2,6 +2,8 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import Banner from "../../components/Banner/Banner"
 import PopularServices from "../../components/PopularServices/PopularServices"
+import Faq from "../../components/Faq/Faq"
+import NewsLetter from "../../components/NewsLetter/NewsLetter"
 
 const Home = () => {
     return (
@@ -12,6 +14,8 @@ const Home = () => {
             </Helmet>
             <Banner></Banner>
             <PopularServices></PopularServices>
+            <Faq></Faq>
+            <NewsLetter></NewsLetter>
         </div>
     )
 }
