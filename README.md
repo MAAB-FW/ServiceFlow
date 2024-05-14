@@ -6,10 +6,10 @@
 
 ## Website Features:
 
-<!-- -   Eye catchy Login and Registration page -->
-<!-- -   There are two themes: Light and Dark -->
-<!-- -   My list page with functional table -->
-<!-- -   Most Secure User Authentication with firebase, github and google -->
-<!-- -   Easy to Navigate different routes -->
+-   User Friendly and eye catchy Interface.
+-   User can search services by keyword.
+-   There are Provider information section in Service Details page.
+-   User can see their all booked services list.
+-   Provider can manage their services like: update and delete.
 
 ### Category: "Electronic Item Repairing Services"
