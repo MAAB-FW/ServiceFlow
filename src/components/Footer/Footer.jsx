@@ -19,13 +19,15 @@ const Footer = () => {
             </svg>
 
             <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
-                <div className="lg:w-1/3">
-                    <Link to={"/"} rel="noopener noreferrer" className="flex justify-center space-x-3 lg:justify-start">
-                        <div className="flex items-center justify-center w-12 h-12 rounded-full">
-                            <img src={logo} alt="" />
-                        </div>
-                        <span className="self-center text-2xl font-semibold">ServiceFlow</span>
-                    </Link>
+                <div className="">
+                    <div rel="noopener noreferrer" className="flex justify-center lg:justify-start">
+                        <Link to={"/"} className="flex">
+                            <div className="flex items-center justify-center w-12 h-12 rounded-full">
+                                <img src={logo} alt="" />
+                            </div>
+                            <span className="self-center text-2xl font-semibold">ServiceFlow</span>
+                        </Link>
+                    </div>
                 </div>
                 <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
                     <div className="space-y-3">

@@ -30,8 +30,8 @@ const SingleServices = () => {
 
     if (isError || error)
         return (
-            <div className="grid place-content-center bg-white px-4">
-                <h1 className="uppercase tracking-widest text-gray-500">Something went wrong</h1>
+            <div className="grid place-content-center bg-base-100 px-4">
+                <h1 className="uppercase tracking-widest text-base-content opacity-80">Something went wrong</h1>
                 <p>{error.message}</p>
             </div>
         )
@@ -46,7 +46,7 @@ const SingleServices = () => {
                 <div className="md:w-2/3 border rounded-lg p-7">
                     <div className="">
                         <div className="flex justify-between">
-                            <h2 className="card-title text-[#010030] text-2xl mb-3">{serviceName}</h2>
+                            <h2 className="card-title text-base-content text-2xl mb-3">{serviceName}</h2>
                             <p className="flex items-center justify-end gap-3 text-2xl text-success">
                                 <IoPricetags />
                                 {price}$
@@ -63,8 +63,8 @@ const SingleServices = () => {
                     <figure className="mb-3">
                         <img className="md:h-80 rounded object-cover w-full" src={imageUrl} />
                     </figure>
-                    <p className="text-gray-700">
-                        <span className="font-semibold underline">Description:</span> {description}
+                    <p className="text-base-content opacity-90">
+                        <span className="font-semibold underline text-base-content">Description:</span> {description}
                     </p>
                 </div>
                 <div className="md:w-1/3 flex flex-col-reverse md:flex-col gap-8">
@@ -74,7 +74,7 @@ const SingleServices = () => {
                             <img className="size-40 rounded-full border" src={providerImage} alt="" />
                             <p className="font-semibold">{providerName}</p>
                             <p className="font-medium text-gray-500">
-                                <span className="text-[#010030] font-bold">Service Area:</span> {serviceArea}
+                                <span className="text-base-content font-bold">Service Area:</span> {serviceArea}
                             </p>
                         </div>
                     </div>

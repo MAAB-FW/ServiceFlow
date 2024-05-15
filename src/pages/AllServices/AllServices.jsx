@@ -14,7 +14,7 @@ const AllServices = () => {
     const [isPending, setLoad] = useState(true)
     const [currentPage, setCurrentPage] = useState(0)
     const [length, setLength] = useState(0)
-    const itemPerPage = 2
+    const itemPerPage = 6
     const [t, setT] = useState(false)
 
     // const {
@@ -42,7 +42,7 @@ const AllServices = () => {
         setTimeout(() => {
             axios(`${import.meta.env.VITE_API_URL}/all-services?page=${currentPage}&size=${itemPerPage}`)
                 .then((res) => {
-                    console.log(res.data)
+                    // console.log(res.data)
                     setLoad(false)
                     setData(res.data)
                 })
@@ -103,7 +103,7 @@ const AllServices = () => {
             <div>
                 <h2 className="text-4xl font-bold text-[#6366f1] text-center">All Services</h2>
                 <div className="max-w-md mx-auto my-10">
-                    <div className="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white overflow-hidden">
+                    <div className="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-base-100 overflow-hidden">
                         <div className="grid place-items-center h-full w-12 text-gray-300">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -123,10 +123,10 @@ const AllServices = () => {
 
                         <input
                             onChange={(e) => handleSearch(e.target.value)}
-                            className="peer h-full w-full outline-none text-sm text-gray-700 pr-2"
+                            className="peer h-full w-full outline-none text-sm text-base-content opacity-95 bg-base-100 pr-2"
                             type="text"
                             id="search"
-                            placeholder="Search something.."
+                            placeholder="Search services.."
                         />
                         {/* <button
                             type="submit"
@@ -171,17 +171,17 @@ const AllServices = () => {
                                     </div>
                                     <hr className="my-4" />
                                     <div className="flex justify-between">
-                                        <h2 className="card-title text-[#010030] text-2xl mb-2">{card.serviceName}</h2>
+                                        <h2 className="card-title text-base-content text-2xl mb-2">{card.serviceName}</h2>
                                         <p className="flex items-center justify-end gap-3 text-lg text-success">
                                             <IoPricetags />
                                             {card.price}$
                                         </p>
                                     </div>
-                                    <p className="text-gray-700 my-4">{card.description.slice(0, 97)}...</p>
+                                    <p className="text-base-content opacity-80 my-4">{card.description.slice(0, 97)}...</p>
 
                                     <div className="card-actions items-center justify-between">
                                         <p className="font-medium text-gray-500">
-                                            <span className="text-[#010030] font-bold">Service Area:</span> {card.serviceArea}
+                                            <span className="text-base-content font-bold">Service Area:</span> {card.serviceArea}
                                         </p>
                                         <Link
                                             to={`/single-services/${card._id}`}

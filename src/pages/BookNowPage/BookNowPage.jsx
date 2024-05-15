@@ -32,8 +32,8 @@ const BookNowPage = () => {
 
     if (isError || error)
         return (
-            <div className="grid place-content-center bg-white px-4">
-                <h1 className="uppercase tracking-widest text-gray-500">Something went wrong</h1>
+            <div className="grid place-content-center bg-base-100 px-4">
+                <h1 className="uppercase tracking-widest text-base-content opacity-80">Something went wrong</h1>
                 <p>{error.message}</p>
             </div>
         )
@@ -64,11 +64,11 @@ const BookNowPage = () => {
             confirmButtonText: "Yes, Purchase!",
         }).then((result) => {
             if (result.isConfirmed) {
-                console.log(bookedData)
+                // console.log(bookedData)
                 secureAxios
                     .post(`/add-bookings`, bookedData)
                     .then((res) => {
-                        console.log(res.data)
+                        // console.log(res.data)
                         if (res.data.insertedId) {
                             e.target.reset()
                             return Swal.fire({

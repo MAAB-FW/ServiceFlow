@@ -45,7 +45,7 @@ const AddAService = () => {
                 secureAxios
                     .post(`/add-a-service`, singleService)
                     .then((res) => {
-                        console.log(res.data)
+                        // console.log(res.data)
                         if (res.data.insertedId) {
                             form.reset()
                             return Swal.fire({

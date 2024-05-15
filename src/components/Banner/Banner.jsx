@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 const Banner = () => {
     const [hover, setHover] = useState(false)
     return (
-        <div className="md:-ml-[8%] md:-mr-[8%] -ml-[5%] -mr-[5%] flex flex-col md:flex-row justify-between bg-base-100">
+        <div className="md:-ml-[8%] md:-mr-[8%] -ml-[5%] -mr-[5%]  flex flex-col md:flex-row justify-between bg-base-100">
             <div className="md:w-1/2 flex flex-col justify-center items-center text-center md:text-left">
                 <h2 className="text-2xl md:text-4xl font-bold w-[90%] md:w-2/3">
                     Revive Your <span className="text-[#6366f1]">Electronics</span> with Our
@@ -26,11 +26,13 @@ const Banner = () => {
                     </Link>
                 </div>
             </div>
-            <img
-                className="md:w-1/2 h-[500px] md:-my-9 object-contain"
-                src="https://cdn.dribbble.com/users/3737023/screenshots/19571641/media/6743a6a0dd318b67d732d6a23cb7ad78.gif"
-                alt=""
-            />
+            <div className="md:w-1/2 flex items-center justify-center lg:h-[400px] ">
+                <img
+                    className="my-8 h-full object-contain"
+                    src="https://cdn.dribbble.com/users/3737023/screenshots/19571641/media/6743a6a0dd318b67d732d6a23cb7ad78.gif"
+                    alt=""
+                />
+            </div>
         </div>
     )
 }

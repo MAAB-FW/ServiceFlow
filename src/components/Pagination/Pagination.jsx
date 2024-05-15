@@ -20,7 +20,7 @@ const Pagination = (data) => {
     // }, [currentPage])
 
     return (
-        <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
+        <div className="flex items-center justify-between border-t border-gray-200 bg-base-100 px-4 py-3 sm:px-6">
             <div className="flex flex-1 justify-between sm:hidden">
                 <a
                     href="#"
@@ -37,7 +37,7 @@ const Pagination = (data) => {
             </div>
             <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
                 <div>
-                    <p className="text-sm text-gray-700">
+                    <p className="text-sm text-base-content opacity-90">
                         Showing <span className="font-medium">{currentPage + 1}</span> of{" "}
                         <span className="font-medium">{pages.length} </span>
                         {/* of <span className="font-medium">97</span>  */}
@@ -62,7 +62,7 @@ const Pagination = (data) => {
                                 key={page}
                                 onClick={() => setCurrentPage(page)}
                                 aria-current="page"
-                                className={`relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0 
+                                className={`relative inline-flex items-center px-4 py-2 text-sm font-semibold ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0 
                                 ${currentPage === page ? "text-white bg-indigo-600" : "hover:bg-gray-50"}`}
                             >
                                 {page + 1}

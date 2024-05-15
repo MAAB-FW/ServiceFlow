@@ -39,8 +39,8 @@ const PopularServices = () => {
 
     if (isError || error)
         return (
-            <div className="grid place-content-center bg-white px-4">
-                <h1 className="uppercase tracking-widest text-gray-500">Something went wrong</h1>
+            <div className="grid place-content-center bg-base-100 px-4">
+                <h1 className="uppercase tracking-widest text-base-content opacity-80">Something went wrong</h1>
                 <p>{error.message}</p>
             </div>
         )

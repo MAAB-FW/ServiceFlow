@@ -34,8 +34,8 @@ const BookedServices = () => {
 
     if (isError || error)
         return (
-            <div className="grid place-content-center bg-white px-4">
-                <h1 className="uppercase tracking-widest text-gray-500">Something went wrong</h1>
+            <div className="grid place-content-center bg-base-100 px-4">
+                <h1 className="uppercase tracking-widest text-base-content opacity-80">Something went wrong</h1>
                 <p>{error.message}</p>
             </div>
         )
@@ -73,7 +73,7 @@ const BookedServices = () => {
                                     </div>
                                     <hr className="my-4" />
                                     <div className="flex justify-between">
-                                        <h2 className="card-title text-[#010030] text-2xl mb-2">{card.serviceName}</h2>
+                                        <h2 className="card-title text-base-content text-2xl mb-2">{card.serviceName}</h2>
                                         <p className="flex items-center justify-end gap-3 text-lg text-success">
                                             <IoPricetags />
                                             {card.price}$
@@ -81,15 +81,16 @@ const BookedServices = () => {
                                     </div>
 
                                     <div className="card-actions items-center justify-between">
-                                        <p className="text-gray-700 my-4">
-                                            <span className="text-[#010030] font-bold">Service Date:</span> {card.serviceDate}
+                                        <p className="text-base-content my-4">
+                                            <span className="opacity-100 font-bold">Service Date:</span>{" "}
+                                            <span className="opacity-80">{card.serviceDate}</span>
                                         </p>
                                         <p className="font-medium text-gray-500">
-                                            <span className="text-[#010030] font-bold">Status:</span> {card.status}
+                                            <span className="text-base-content font-bold">Status:</span> {card.status}
                                         </p>
                                     </div>
                                     <p>
-                                        <span className="text-[#010030] font-bold">Instruction:</span> {card.instruction}
+                                        <span className="text-base-content font-bold">Instruction:</span> {card.instruction}
                                     </p>
                                 </div>
                             </div>

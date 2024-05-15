@@ -74,8 +74,8 @@ const ManageServices = () => {
 
     if (isError || error)
         return (
-            <div className="grid place-content-center bg-white px-4">
-                <h1 className="uppercase tracking-widest text-gray-500">Something went wrong</h1>
+            <div className="grid place-content-center bg-base-100 px-4">
+                <h1 className="uppercase tracking-widest text-base-content opacity-80">Something went wrong</h1>
                 <p>{error.message}</p>
             </div>
         )
@@ -116,7 +116,7 @@ const ManageServices = () => {
                                     </div>
                                     <hr className="my-4" />
                                     <div className="flex justify-between">
-                                        <h2 className="card-title text-[#010030] text-2xl mb-2">{card.serviceName}</h2>
+                                        <h2 className="card-title text-base-content text-2xl mb-2">{card.serviceName}</h2>
                                         <p className="flex items-center justify-end gap-3 text-lg text-success">
                                             <IoPricetags />
                                             {card.price}$
@@ -126,7 +126,7 @@ const ManageServices = () => {
 
                                     <div className="card-actions items-center justify-between">
                                         <p className="font-medium text-gray-500">
-                                            <span className="text-[#010030] font-bold">Service Area:</span> {card.serviceArea}
+                                            <span className="text-base-content font-bold">Service Area:</span> {card.serviceArea}
                                         </p>
                                         <div className="flex gap-6">
                                             <Link to={`/update-service/${card._id}`} className="btn btn-warning text-black">

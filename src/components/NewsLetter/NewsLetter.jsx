@@ -4,7 +4,7 @@ const NewsLetter = () => {
     return (
         <div className="bg-[#111827] h-96 rounded-3xl text-center flex flex-col gap-10 justify-center my-14 overflow-hidden">
             <div className="flex flex-col gap-2 w-[90%] mx-auto">
-                <h2 className="text-base-100 text-2xl md:text-4xl font-bold">Get notified when new service available.</h2>
+                <h2 className="text-white text-2xl md:text-4xl font-bold">Get notified when new service available.</h2>
                 <p className="md:text-lg text-[#d1d5db] md:max-w-xl mx-auto">
                     Subscribe to our newsletter and stay in the loop with the latest updates, promotions, and news from
                     ServiceFlow.
@@ -21,7 +21,7 @@ const NewsLetter = () => {
                         className="w-1/2 md:w-1/4 py-2 px-4 h-10 bg-[#ffffff0d] border-[rgb(107,114,128)] rounded-md placeholder:text-sm placeholder:text-[rgb(107,114,128)] text-white "
                         placeholder="Enter your email"
                     />
-                    <button className="px-4 py-2 bg-white rounded-md font-medium">Notify me</button>
+                    <button className="px-4 py-2 bg-white text-[#111827] rounded-md font-medium">Notify me</button>
                 </div>
                 <svg
                     viewBox="0 0 1024 1024"
