@@ -6,11 +6,16 @@ import axios from "axios"
 import { Link } from "react-router-dom"
 import { IoPricetags } from "react-icons/io5"
 import EmptyServices from "../../components/EmptyServices/EmptyServices"
+import Pagination from "../../components/Pagination/Pagination"
 
 const AllServices = () => {
     const [text, setText] = useState("")
     const [data, setData] = useState([])
     const [isPending, setLoad] = useState(true)
+    const [currentPage, setCurrentPage] = useState(0)
+    const [length, setLength] = useState(0)
+    const itemPerPage = 2
+    const [t, setT] = useState(false)
 
     // const {
     //     data = [],
@@ -34,21 +39,34 @@ const AllServices = () => {
 
     useEffect(() => {
         setLoad(true)
-        axios(`${import.meta.env.VITE_API_URL}/all-services`)
+        setTimeout(() => {
+            axios(`${import.meta.env.VITE_API_URL}/all-services?page=${currentPage}&size=${itemPerPage}`)
+                .then((res) => {
+                    console.log(res.data)
+                    setLoad(false)
+                    setData(res.data)
+                })
+                .catch((e) => {
+                    console.log(e)
+                })
+        }, 50)
+
+        axios(`${import.meta.env.VITE_API_URL}/pagination-services`)
             .then((res) => {
-                // console.log(res.data)
-                setLoad(false)
-                return setData(res.data)
+                // console.log(res.data.count)
+                setLength(res.data.count)
             })
             .catch((e) => {
                 console.log(e)
             })
-    }, [])
+    }, [currentPage, t])
     useEffect(() => {
+        setLoad(true)
         axios(`${import.meta.env.VITE_API_URL}/all-services?search=${text}`)
             .then((res) => {
+                setLoad(false)
                 // console.log(res.data)
-                return setData(res.data)
+                setData(res.data)
             })
             .catch((e) => {
                 console.log(e)
@@ -56,13 +74,17 @@ const AllServices = () => {
     }, [text])
 
     const handleSearch = (text) => {
-        console.log(text)
+        setCurrentPage(0)
+        // console.log(text)
+        if (text === "") {
+            setT(!t)
+        }
         // if (!text) setText(" ")
         // refetch()
         setText(text)
     }
 
-    if (isPending) return <Loading></Loading>
+    // if (isPending) return <Loading></Loading>
 
     // if (isError || error)
     //     return (
@@ -114,8 +136,16 @@ const AllServices = () => {
                         </button> */}
                     </div>
                 </div>
-                <div className=" flex flex-col gap-6">
-                    {data.length > 0 ? (
+                <Pagination
+                    length={length}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                    itemPerPage={itemPerPage}
+                ></Pagination>
+                <div className=" flex flex-col gap-6 mt-5">
+                    {isPending ? (
+                        <Loading></Loading>
+                    ) : data.length > 0 ? (
                         data?.map((card) => (
                             <div
                                 key={card._id}
@@ -153,7 +183,10 @@ const AllServices = () => {
                                         <p className="font-medium text-gray-500">
                                             <span className="text-[#010030] font-bold">Service Area:</span> {card.serviceArea}
                                         </p>
-                                        <Link to={`/single-services/${card._id}`} className="btn bg-[#6366f1] hover:bg-[#4345a4] text-white">
+                                        <Link
+                                            to={`/single-services/${card._id}`}
+                                            className="btn bg-[#6366f1] hover:bg-[#4345a4] text-white"
+                                        >
                                             View Details
                                         </Link>
                                     </div>

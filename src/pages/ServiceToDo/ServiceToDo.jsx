@@ -48,7 +48,7 @@ const ServiceToDo = () => {
         },
     })
 
-    if (isPending) return <Loading></Loading>
+    // if (isPending) return <Loading></Loading>
 
     if (isError || error)
         return (
@@ -85,7 +85,13 @@ const ServiceToDo = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data.length > 0 ? (
+                            {isPending ? (
+                                <tr>
+                                    <td colSpan={6}>
+                                        <Loading></Loading>
+                                    </td>
+                                </tr>
+                            ) : data.length > 0 ? (
                                 data?.map((card) => (
                                     <tr
                                         key={card._id}
@@ -126,11 +132,13 @@ const ServiceToDo = () => {
                                     </tr>
                                 ))
                             ) : (
-                                <tr>
-                                    <td colSpan={6}>
-                                        <EmptyServices name={{ name: "Services" }}></EmptyServices>
-                                    </td>
-                                </tr>
+                                !isPending && (
+                                    <tr>
+                                        <td colSpan={6}>
+                                            <EmptyServices name={{ name: "Services" }}></EmptyServices>
+                                        </td>
+                                    </tr>
+                                )
                             )}
                         </tbody>
                     </table>

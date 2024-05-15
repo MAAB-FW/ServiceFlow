@@ -34,8 +34,8 @@ const PopularServices = () => {
     }
 
     shuffleArray(data)
-    
-    if (isPending) return <Loading></Loading>
+
+    // if (isPending) return <Loading></Loading>
 
     if (isError || error)
         return (
@@ -55,7 +55,11 @@ const PopularServices = () => {
                 </p>
             </div>
             <div className="my-16 grid grid-cols-1 md:grid-cols-2 gap-6">
-                {data.length > 0 ? (
+                {isPending ? (
+                    <div className="col-span-2">
+                        <Loading></Loading>
+                    </div>
+                ) : data.length > 0 ? (
                     data?.slice(0, 6)?.map((card) => <SingleServiceCard key={card._id} card={card}></SingleServiceCard>)
                 ) : (
                     <EmptyServices name={{ name: "Services" }}></EmptyServices>

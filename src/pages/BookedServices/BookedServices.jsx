@@ -30,7 +30,7 @@ const BookedServices = () => {
     })
     console.log(data)
 
-    if (isPending) return <Loading></Loading>
+    // if (isPending) return <Loading></Loading>
 
     if (isError || error)
         return (
@@ -49,7 +49,9 @@ const BookedServices = () => {
             <div>
                 <h2 className="text-4xl font-bold text-[#6366f1] text-center">Booked Services</h2>
                 <div className=" flex flex-col gap-6 my-10">
-                    {data.length > 0 ? (
+                    {isPending ? (
+                        <Loading></Loading>
+                    ) : data.length > 0 ? (
                         data?.map((card) => (
                             <div
                                 key={card._id}

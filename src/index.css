@@ -7,6 +7,6 @@
 .active {
     background-color: rgb(24, 9, 9) !important;
     color: white !important;
-    font-weight: 600;
+    /* font-weight: 600; */
     background-color: #6366f1 !important;
 }
