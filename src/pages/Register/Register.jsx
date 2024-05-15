@@ -64,7 +64,7 @@ const Register = () => {
             </Helmet>
             <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                    <h2 className=" text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+                    <h2 className=" text-center text-2xl font-bold leading-9 tracking-tight text-base-content">
                         Register your account
                     </h2>
                 </div>
@@ -72,7 +72,7 @@ const Register = () => {
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                     <form onSubmit={handleSubmit} className="space-y-6" method="POST">
                         <div>
-                            <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="name" className="block text-sm font-medium leading-6 text-base-content">
                                 Full Name
                             </label>
                             <div className="mt-2">
@@ -83,13 +83,13 @@ const Register = () => {
                                     // autoComplete="name"
                                     required
                                     placeholder="Enter Your Full Name"
-                                    className="block w-full px-4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block w-full px-4 rounded-md border-0 py-1.5 text-base-content shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                             </div>
                         </div>
 
                         <div>
-                            <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="email" className="block text-sm font-medium leading-6 text-base-content">
                                 Email address
                             </label>
                             <div className="mt-2">
@@ -100,13 +100,13 @@ const Register = () => {
                                     // autoComplete="email"
                                     required
                                     placeholder="Enter Your Email Address"
-                                    className="block w-full px-4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block w-full px-4 rounded-md border-0 py-1.5 text-base-content shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                             </div>
                         </div>
 
                         <div>
-                            <label htmlFor="photo" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="photo" className="block text-sm font-medium leading-6 text-base-content">
                                 photo address
                             </label>
                             <div className="mt-2">
@@ -117,14 +117,14 @@ const Register = () => {
                                     // autoComplete="photo"
                                     required
                                     placeholder="Enter Your photo URL"
-                                    className="block w-full px-4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block w-full px-4 rounded-md border-0 py-1.5 text-base-content shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                             </div>
                         </div>
 
                         <div>
                             <div className="flex items-center justify-between">
-                                <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
+                                <label htmlFor="password" className="block text-sm font-medium leading-6 text-base-content">
                                     Password
                                 </label>
                                 {/* <div className="text-sm">
@@ -141,7 +141,7 @@ const Register = () => {
                                     // autoComplete="current-password"
                                     required
                                     placeholder="Enter Your Password"
-                                    className="block w-full px-4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block w-full px-4 rounded-md border-0 py-1.5 text-base-content shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                             </div>
                         </div>
