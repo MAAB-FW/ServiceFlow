@@ -29,6 +29,7 @@ const useSecureAxios = () => {
                         })
                     return console.log("logout user")
                 }
+                return Promise.reject(err)
             },
         )
     }, [logoutUser, navigate])
