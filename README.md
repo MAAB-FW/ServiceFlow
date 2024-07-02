@@ -1,4 +1,5 @@
 # ServiceFlow
+#### ServiceFlow is a simple service-sharing web application. Where users can add , update and delete his own services , watch others' services , watch service details, book any specific service , and update the current status of his service .
 
 ## Website Live Link:
 
